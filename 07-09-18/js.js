@@ -1,4 +1,32 @@
 /**
+ * variable assign
+ */
+
+let num; //undefined
+
+function checkVar(param) {
+    if (param) {
+        console.log('inside if');
+    } else {
+        console.log('inside else');
+    }
+}
+
+checkVar(num);
+
+num = 3;
+
+checkVar(num);
+
+num = null; //same as undefined
+
+checkVar(num);
+
+let string = ''; //same as undefined
+
+checkVar(string);
+
+/**
  * var vs let
  */
 
@@ -22,7 +50,8 @@ for (let j = 0; j < 3; j++) {
 // console.log('j', j);
 
 /**
- * const
+ * consts
+ * are not like in Java
  */
 
 const obj = {id: 3};
@@ -49,7 +78,7 @@ const employee = {
 console.log(employee.fullName);
 console.log(employee.fullName());
 
-employee['age'] = 42;
+employee['age'] = 42; //like a map
 console.log(employee);
 
 const employeeCopy = employee;
@@ -57,7 +86,13 @@ employeeCopy.fName = 'Vasja';
 
 console.log(employee.fullName());
 
-console.log(Object.values(employee));
+console.log(Object.values(employee)); // returns an array of values
+
+const assignedEmployee = Object.assign({}, employee);
+
+assignedEmployee.age = 0;
+
+console.log(employee.age); //original object is not effected
 
 /**
  * comparison operators
@@ -74,7 +109,7 @@ if (stringNum !== flNum) {
     console.log('string is NOT equal float');
 }
 
-console.log(flNum > 2 ? 'flNum is more that 2' : 'flNum is less or equal 2');
+console.log(flNum > 2 ? 'true' : 'false');
 
 /**
  * arithmetic operators
@@ -102,7 +137,7 @@ function createEmployee (age, fName, lName, dep) {
     }
 }
 
-// new must be here
+// new creates a object here
 const newEmployee = new createEmployee(23, 'Alex', 'Pupkin', 'prod');
 
 console.log(newEmployee.fullName());
