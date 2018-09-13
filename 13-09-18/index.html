@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Berlin JS Course</title>
+    <script src="js.js"></script>
+</head>
+<body>
+<div id="watches"></div>
+<script>
+
+    console.log(sum(3,5));
+    // works everywhere
+    function sum(a,b){return a+b;}
+
+    // works only after function declaration
+    let sumExp = function(a,b){return a+b;};
+    console.log(sumExp(3,5));
+    // anonymous function
+    console.log(function(a,b){return a+b;}(3,5));
+
+    //function as text
+    let op = '*';
+    let code = '{return a'+op+'b;}';
+    let oper = new Function('a','b', code);
+    console.log(oper(5,5));
+
+
+    var counter = 0;
+    var si = setInterval(function(){
+        watches.innerText = (new Date()).toString();
+        if(counter===10){
+            clearTimeout(si);
+            counter=0;
+        }
+        counter++;
+    },1000);
+
+</script>
+</body>
+</html>
