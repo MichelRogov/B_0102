@@ -18,11 +18,13 @@ console.log(Object.entries(obj));
 
 function objConstructor(args) {
 
-    return new function () {
-        for (let key in args) {
-            this[args[key]] = args[key];
-        }
-    };
+    // return new function () {
+    //     for (let key in args) {
+    //         this[args[key]] = args[key];
+    //     }
+    // };
+
+    //the right version of constructor:
     var code = '';
     for (var i = 0; i < args.length; i++) {
         code = code + ' this.' + args[i] + ' = ' + args[i] + ';';
