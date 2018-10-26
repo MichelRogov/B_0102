@@ -173,3 +173,21 @@ for (var i = 0; i < arr.length; i++) {
     }, 300);
 }
 
+/**
+ * Object destructuring
+ */
+const student = {
+    name: 'Alex',
+    age: 42,
+    height: 180
+};
+
+const {name, height = 150} = student;
+
+console.log('height: ',height);
+
+function destFunc ({arg1 = 123, arg2 = 234, arg3 = 345} = {}) {
+    console.log(arg1, arg2, arg3)
+}
+
+destFunc ({arg2: 'hello'});
